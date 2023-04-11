@@ -17,10 +17,10 @@ public class App extends PApplet {
 
     private Block block;
     private Obstacle obstacle;
+
     
     public void settings(){
-        this.size(600,600);
-
+        this.size(600, 600);
     }
 
     public void setup(){
@@ -38,6 +38,11 @@ public class App extends PApplet {
         this.block.draw();
         this.obstacle.draw();
 
+    }
+
+    public void keyPressed(){
+        block.jump();
+        block.draw();
     }
 
     public static void main(String[] args){

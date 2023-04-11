@@ -6,6 +6,8 @@ public class Block {
 
     private int x = 200;
     private int y = 150;
+    private int xspeed = 2;
+    private int yspeed = 2;
     private App app;
 
     public Block(int x, int y, App app){
@@ -16,7 +18,10 @@ public class Block {
 
     public void draw(){
         this.app.rect(this.x, this.y, 50, 50);
-        this.x++;
-        this.y++;
+    }
+
+    public void jump(){
+        this.y = y + yspeed;
+        // should I do a timed loop somehow?
     }
 } 

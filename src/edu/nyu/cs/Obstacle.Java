@@ -1,7 +1,7 @@
 package edu.nyu.cs;
 
 
-public class Obstacle{
+public class Obstacle {
 
     private int x = 200;
     private int y = 150;
@@ -18,13 +18,6 @@ public class Obstacle{
     public void draw(){
         this.app.rect(this.x, this.y, 100, 100);
     }
-
-
-
-
-
-
-
 
 
 }
