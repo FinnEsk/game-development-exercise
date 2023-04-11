@@ -24,18 +24,18 @@ public class Block {
     }
 
     public void draw(){
-        this.app.rect(this.x, this.y, 50, 50);
+        this.app.rect(this.x, this.y, 35, 35);
         this.app.stroke(this.r, this.g, this.b);
         
         
         if(isJumping == true){
-            y--;
-            if(y < 200){
+            y-=2;
+            if(y < 150){
                 isJumping = false;
             }
         }
-        else if(this.y < 250){
-            y++;
+        else if(this.y < 265){
+            y+=2;
         }
         
     }

@@ -27,7 +27,7 @@ private Obstacle obstacle;
 
     public void setup(){
 
-        this.block = new Block(300, 250, this);
+        this.block = new Block(300, 265, this);
         this.obstacle = new Obstacle(500, 275, this);
 
     }
