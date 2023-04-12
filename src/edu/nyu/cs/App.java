@@ -18,8 +18,17 @@ public class App extends PApplet {
 
 
     private Block block;
-    
-private Obstacle obstacle;
+    private O obstacle;
+    private int score = 0;
+    private ArrayList<O> Obstacles;
+    private int numObstacles = 500;
+
+
+
+    public int randomizer(){
+        Random rand = new Random();
+        return rand.nextInt(255);
+    }
     
     public void settings(){
         this.size(600, 600);
@@ -28,7 +37,13 @@ private Obstacle obstacle;
     public void setup(){
 
         this.block = new Block(300, 265, this);
-        this.obstacle = new Obstacle(500, 275, this);
+        
+
+        Obstacles = new ArrayList<O>();
+        for(int i = 0; i < numObstacles; i++){
+            O obstacle = new O(500, 275, this);
+            this.Obstacles.add(obstacle);
+        }
 
     }
 
@@ -40,14 +55,34 @@ private Obstacle obstacle;
         this.stroke(100,100,100);
         this.line(0,300,600,300);
 
+
         this.block.draw();
-        this.obstacle.draw();
+
+        int o_generator = 500;
+
+        for(int i = 0; i < this.Obstacles.size(); i++){
+            if(score <= o_generator)
+            {
+                O obstacle = this.Obstacles.get(i);
+                obstacle.draw();
+                o_generator += 400;
+            }
+        }
+
+        this.fill(255,255,255);
+        this.stroke(255,255,255);
+        
+        score ++;
+
+        String scoreString = String.format("SCORE: %d", this.score);
+        text(scoreString, this.width/2 - 20, this.height-200);
 
     }
 
     public void keyPressed(){
         block.jump();
         block.draw();
+        score += 100;
     }
 
     public void mouseClicked(){

@@ -24,35 +24,37 @@ public class Block {
     }
 
     public void draw(){
-        this.app.rect(this.x, this.y, 35, 35);
+
         this.app.stroke(this.r, this.g, this.b);
+        this.app.fill(this.r, this.g, this.b);
+        this.app.rect(this.x, this.y, 35, 35);
+        
         
         
         if(isJumping == true){
-            y-=2;
-            if(y < 150){
+            y-=4;
+            if(y < 175){
                 isJumping = false;
             }
         }
         else if(this.y < 265){
-            y+=2;
+            y+=4;
         }
         
     }
 
     public void jump(){
         isJumping = true;
-        // should I do a timed loop somehow?
     }
 
-    public int randomizer(){
+    /*public int randomizer(){
         Random rand = new Random();
         return rand.nextInt(255);
-    }
+    } */
 
     public void randomColor(){
-        this.r = randomizer();
-        this.g = randomizer();
-        this.b = randomizer();
+        this.r = app.randomizer();
+        this.g = app.randomizer();
+        this.b = app.randomizer();
     }
 } 
